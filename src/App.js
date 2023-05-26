@@ -26,7 +26,7 @@ function App() {
 
       <footer>
           <p>Criado por Matheus Campos e José Victor para a disciplina de Programação Web</p>
-        </footer>
+      </footer>
     </Router>
   );
 }
