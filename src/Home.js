@@ -54,6 +54,7 @@ function Home() {
       <section>
             <h2>Saldo Atual</h2>
             <input
+              className='input-box'
               type="number"
               value={saldoAtual}
               onChange={(event) => setSaldoAtual(Number(event.target.value))}
@@ -67,6 +68,7 @@ function Home() {
                 <div className="input-group">
                   <label>Aluguel:</label>
                   <input
+                    className='input-box'
                     type="number"
                     value={aluguel}
                     onChange={(event) => setAluguel(Number(event.target.value))}
@@ -75,6 +77,7 @@ function Home() {
                 <div className="input-group">
                   <label>Alimentação:</label>
                   <input
+                    className='input-box'
                     type="number"
                     value={alimentacao}
                     onChange={(event) => setAlimentacao(Number(event.target.value))}
@@ -83,6 +86,7 @@ function Home() {
                 <div className="input-group">
                   <label>Transporte:</label>
                   <input
+                    className='input-box'
                     type="number"
                     value={transporte}
                     onChange={(event) => setTransporte(Number(event.target.value))}
@@ -91,6 +95,7 @@ function Home() {
                 <div className="input-group">
                   <label>Outros:</label>
                   <input
+                    className='input-box'
                     type="number"
                     value={despesasOutros}
                     onChange={(event) => setDespesasOutros(Number(event.target.value))}
@@ -109,6 +114,7 @@ function Home() {
                 <div className="input-group">
                   <label>Salário:</label>
                   <input
+                    className='input-box'
                     type="number"
                     value={salario}
                     onChange={(event) => setSalario(Number(event.target.value))}
@@ -117,6 +123,7 @@ function Home() {
                 <div className="input-group">
                   <label>Investimentos:</label>
                   <input
+                    className='input-box'
                     type="number"
                     value={investimentos}
                     onChange={(event) => setInvestimentos(Number(event.target.value))}
@@ -125,6 +132,7 @@ function Home() {
                 <div className="input-group">
                   <label>Outros:</label>
                   <input
+                    className='input-box'
                     type="number"
                     value={receitasOutros}
                     onChange={(event) => setReceitasOutros(Number(event.target.value))}
