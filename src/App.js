@@ -11,10 +11,10 @@ function App() {
     <Router>
       <header>
         <div className="header-links">
-          <Link to="/historico" className="header-link" id='link-text'>Histórico</Link>
+          <Link to="/historico" className="header-link" id='link-text'>HISTÓRICO</Link>
           <Link to="/" className="header-link logo">
           <img src={logo} alt="Logo" /></Link>
-          <Link to="/estude" className="header-link" id='link-text'>Estude</Link>
+          <Link to="/estude" className="header-link" id='link-text'>ESTUDE</Link>
         </div>
       </header>
 

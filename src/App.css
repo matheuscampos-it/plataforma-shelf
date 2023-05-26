@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 
-*{
+* {
   max-width: 100%;
 }
 
@@ -16,12 +17,11 @@ body {
   font-size: 26px;
   color: #212427; /* Cor do link */
   text-decoration: none; /* Remover sublinhado */
-  font-weight: bold; /* Negrito */
   margin-right: 20px; /* Espaçamento à direita */
   padding-left: 40px;
   padding-right: 40px;
+  font-family: 'Fjalla One', sans-serif;
 }
-
 
 .header-link::before {
   content: "";
@@ -41,7 +41,7 @@ body {
   transform: scaleX(1);
 }
 
-#link-text::before{
+#link-text::before {
   transform: scaleX(0);
   transition: transform 0.3s ease-in-out;
   background-color: #212427;
@@ -67,8 +67,7 @@ header {
   margin: 0 auto;
 }
 
-
-.header-links img {
+header-links img {
   max-width: 200px;
 }
 
@@ -79,24 +78,35 @@ main {
 }
 
 section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   margin-bottom: 20px;
   border-radius: 4px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.coluna-esq,
+.coluna-dir {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 section.despesas {
-  border: 1px solid #F7C04A; /* Laranja */
-  box-shadow: 0 2px 4px rgba(247, 192, 74, 0.5); /* Sombra laranja */
+  border: 1px solid #F7C04A !important; /* Laranja */
+  box-shadow: 0 4px 6px rgba(247, 192, 74, 0.5) !important; /* Sombra laranja */
 }
 
 section.receita {
-  border: 1px solid #539165; /* Verde */
-  box-shadow: 0 2px 4px rgba(83, 145, 101, 0.5); /* Sombra verde */
+  border: 1px solid #539165 !important; /* Verde */
+  box-shadow: 0 4px 6px rgba(83, 145, 101, 0.5) !important; /* Sombra verde */
 }
 
 section.saldo {
-  border: 1px solid #212427;
+  border: 3px solid #212427 !important;
 }
 
 section.saldo-final p {
@@ -110,7 +120,6 @@ h2 {
   margin-top: 0;
 }
 
-/* ESTILIZAR CAIXA DE INPUT */
 .input-box {
   border: 2px solid #539165;
   border-radius: 8px;
@@ -139,20 +148,20 @@ h2 {
   font-size: 40px;
 }
 
-
 .mensagem {
   margin-top: 20px;
   padding: 20px;
   background-color: #F8F5E4; /* Branco */
-  text-align: center;
   border: none; /* Remover borda */
   box-shadow: none; /* Remover box shadow */
   font-size: 50px;
   font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
-/* Estilos específicos para cada seção */
 section:nth-child(1) {
   background-color: #F8F5E4; /* Branco */
 }
@@ -173,8 +182,6 @@ footer {
   text-align: center;
   bottom: 0;
 }
-
-/* Estude CSS */
 
 .titulo-principal {
   text-align: center;
