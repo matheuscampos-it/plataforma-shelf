@@ -4,6 +4,7 @@ import './App.css';
 import Home from './Home';
 import Estude from './Estude';
 import Historico from './Historico';
+import Login from './Login';
 import logo from './imagens/shelf-logo.png';
 
 function App() {
@@ -11,21 +12,32 @@ function App() {
     <Router>
       <header>
         <div className="header-links">
-          <Link to="/historico" className="header-link" id='link-text'>HISTÓRICO</Link>
+          <Link to="/historico" className="header-link" id="link-text">
+            HISTÓRICO
+          </Link>
           <Link to="/" className="header-link logo">
-          <img src={logo} alt="Logo" /></Link>
-          <Link to="/estude" className="header-link" id='link-text'>ESTUDE</Link>
+            <img src={logo} alt="Logo" />
+          </Link>
+          <Link to="/estude" className="header-link" id="link-text">
+            ESTUDE
+          </Link>
+          <Link to="/login" className="header-link" id="link-text">
+            LOGIN
+          </Link>
         </div>
       </header>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/estude" element={<Estude />} />
-        <Route path="/historico" element={<Historico />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/estude" element={<Estude />} />
+          <Route path="/historico" element={<Historico />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </main>
 
       <footer>
-          <p>Criado por Matheus Campos e José Victor para a disciplina de Programação Web</p>
+        <p>Criado por Matheus Campos e José Victor para a disciplina de Programação Web</p>
       </footer>
     </Router>
   );

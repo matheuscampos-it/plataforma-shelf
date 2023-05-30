@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 
-* {
-  max-width: 100%;
-}
-
 body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #F8F5E4; /* Branco */
   overflow-x: hidden; /* Oculta a barra de rolagem horizontal */
+}
+
+main {
+  margin: 40px auto; /* Aumenta o espaçamento superior e inferior */
+  max-width: 80%; /* Alterado para ocupar no máximo 80% da largura */
+  background-color: #F8F5E4; /* Branco */
+  box-sizing: border-box;
 }
 
 .header-link {
@@ -67,32 +70,146 @@ header {
   margin: 0 auto;
 }
 
-header-links img {
+.header-links img {
   max-width: 200px;
 }
 
-main {
-  padding: 20px;
-  max-width: 60%;
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
   margin: 0 auto;
+  overflow-y: auto;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Ocupa toda a largura disponível */
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px; /* Adiciona um espaçamento interno */
+}
+
+.login-title {
+  font-size: 36px;
+  color: #212427; /* Cor do título */
+  margin-bottom: 20px;
+  font-family: 'Fjalla One', sans-serif;
+  text-align: center; /* Centraliza o texto */
+}
+
+.login-input {
+  width: 100%; /* Ocupa toda a largura disponível */
+  max-width: 300px;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 2px solid #539165; /* Cor da borda */
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.login-button {
+  width: 100%; /* Ocupa toda a largura disponível */
+  max-width: 300px;
+  height: 40px;
+  background-color: #539165; /* Cor do botão */
+  color: #F8F5E4; /* Cor do texto do botão */
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #407852; /* Cor do botão ao passar o mouse */
+}
+
+.login-button:focus {
+  outline: none;
+}
+
+.login-message {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #F8F5E4; /* Branco */
+  border: none; /* Remover borda */
+  box-shadow: none; /* Remover box shadow */
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #212427; /* Cor do texto da mensagem */
+}
+
+.login-message.negativo {
+  color: #FC3503; /* Vermelho */
+}
+
+.login-message.atencao {
+  color: #F7C04A; /* Laranja */
+}
+
+.login-message.positivo {
+  color: #539165; /* Verde */
+}
+
+.toggle-mode-container {
+  margin-top: 40px; /* Aumenta o espaçamento superior */
+}
+
+.toggle-mode-button {
+  width: 150px;
+  height: 30px;
+  background-color: #539165; /* Cor do botão */
+  color: #F8F5E4; /* Cor do texto do botão */
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.toggle-mode-button:hover {
+  background-color: #407852; /* Cor do botão ao passar o mouse */
+}
+
+.toggle-mode-button:focus {
+  outline: none;
 }
 
 section {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 20px;
   border-radius: 4px;
-  padding: 20px;
+  margin-bottom: 40px; /* Aumenta o espaçamento inferior */
+  padding: 20px; /* Adiciona um espaçamento interno */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .coluna-esq,
 .coluna-dir {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* Alinha à esquerda */
   justify-content: center;
+  flex-basis: 50%; /* Ocupa metade da largura */
 }
 
 section.despesas {
@@ -149,8 +266,9 @@ h2 {
 }
 
 .mensagem {
-  margin-top: 20px;
-  padding: 20px;
+  margin-top: 40px; /* Aumenta o espaçamento superior */
+  margin-bottom: 80px;
+  padding: 20px; /* Adiciona um espaçamento interno */
   background-color: #F8F5E4; /* Branco */
   border: none; /* Remover borda */
   box-shadow: none; /* Remover box shadow */
@@ -160,7 +278,6 @@ h2 {
   justify-content: center;
   align-items: center;
 }
-
 
 section:nth-child(1) {
   background-color: #F8F5E4; /* Branco */
@@ -176,10 +293,12 @@ section:nth-child(3) {
 
 footer {
   width: 100%;
-  padding: 10px;
+  padding: 0px;
   background-color: #212427; /* Preto */
   color: #F8F5E4; /* Branco */
   text-align: center;
+  position: fixed;
+  left: 0;
   bottom: 0;
 }
 
@@ -187,22 +306,68 @@ footer {
   text-align: center;
   font-size: 36px;
   color: #212427;
-  margin-bottom: 20px;
+  margin-bottom: 40px; /* Aumenta o espaçamento inferior */
 }
 
 .subtitulo {
   font-size: 24px;
   color: #539165;
-  margin-bottom: 10px;
+  margin-bottom: 20px; /* Aumenta o espaçamento inferior */
 }
 
 .subtitulo-pequeno {
   font-size: 18px;
   color: #539165;
-  margin-bottom: 10px;
+  margin-bottom: 20px; /* Aumenta o espaçamento inferior */
 }
 
 #content {
   font-size: 16px;
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .login-container {
+    padding: 20px;
+  }
+  
+  .login-form {
+    max-width: 100%;
+  }
+  
+  .login-input {
+    width: 100%;
+  }
+  
+  .login-button {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .input-box {
+    width: 100%;
+  }
+
+  section {
+    padding: 10px;
+  }
+  
+  .mensagem {
+    font-size: 30px;
+  }
+  
+  section.despesas,
+  section.receita {
+    margin-bottom: 10px;
+  }
+  
+  .toggle-mode-button {
+    width: 100px;
+    font-size: 12px;
+  }
 }
