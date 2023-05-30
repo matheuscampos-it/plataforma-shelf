@@ -1,6 +1,8 @@
+/* Import de fontes */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 
+/* Estilos globais */
 body {
   margin: 0;
   padding: 0;
@@ -9,6 +11,7 @@ body {
   overflow-x: hidden; /* Oculta a barra de rolagem horizontal */
 }
 
+/* Estilos do conteúdo principal */
 main {
   margin: 40px auto; /* Aumenta o espaçamento superior e inferior */
   max-width: 80%; /* Alterado para ocupar no máximo 80% da largura */
@@ -16,6 +19,10 @@ main {
   box-sizing: border-box;
 }
 
+/* Estilos do header */
+/* ----------------- */
+
+/* Estilos dos links do header */
 .header-link {
   font-size: 26px;
   color: #212427; /* Cor do link */
@@ -50,6 +57,7 @@ main {
   background-color: #212427;
 }
 
+/* Estilos do cabeçalho */
 header {
   display: flex;
   flex-direction: row;
@@ -74,6 +82,7 @@ header {
   max-width: 200px;
 }
 
+/* Estilos do container de login */
 .login-container {
   display: flex;
   flex-direction: column;
@@ -84,6 +93,7 @@ header {
   overflow-y: auto;
 }
 
+/* Estilos do formulário de login */
 .login-form {
   display: flex;
   flex-direction: column;
@@ -94,6 +104,7 @@ header {
   padding: 20px; /* Adiciona um espaçamento interno */
 }
 
+/* Estilos do título do formulário de login */
 .login-title {
   font-size: 36px;
   color: #212427; /* Cor do título */
@@ -102,6 +113,7 @@ header {
   text-align: center; /* Centraliza o texto */
 }
 
+/* Estilos do input do formulário de login */
 .login-input {
   width: 100%; /* Ocupa toda a largura disponível */
   max-width: 300px;
@@ -113,6 +125,7 @@ header {
   font-size: 16px;
 }
 
+/* Estilos do botão de login */
 .login-button {
   width: 100%; /* Ocupa toda a largura disponível */
   max-width: 300px;
@@ -135,6 +148,7 @@ header {
   outline: none;
 }
 
+/* Estilos da mensagem do login */
 .login-message {
   margin-top: 40px;
   padding: 20px;
@@ -161,71 +175,42 @@ header {
   color: #539165; /* Verde */
 }
 
-.toggle-mode-container {
-  margin-top: 40px; /* Aumenta o espaçamento superior */
-}
-
-.toggle-mode-button {
-  width: 150px;
-  height: 30px;
-  background-color: #539165; /* Cor do botão */
-  color: #F8F5E4; /* Cor do texto do botão */
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 20px;
-}
-
-.toggle-mode-button:hover {
-  background-color: #407852; /* Cor do botão ao passar o mouse */
-}
-
-.toggle-mode-button:focus {
-  outline: none;
-}
-
+/* Estilos das seções */
 section {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
   border-radius: 4px;
   margin-bottom: 40px; /* Aumenta o espaçamento inferior */
   padding: 20px; /* Adiciona um espaçamento interno */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilos do conteúdo das seções */
 .section-content {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-.coluna-esq,
-.coluna-dir {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Alinha à esquerda */
-  justify-content: center;
-  flex-basis: 50%; /* Ocupa metade da largura */
-}
-
+/* Estilos da seção de despesas */
 section.despesas {
   border: 1px solid #F7C04A !important; /* Laranja */
   box-shadow: 0 4px 6px rgba(247, 192, 74, 0.5) !important; /* Sombra laranja */
 }
 
+/* Estilos da seção de receita */
 section.receita {
   border: 1px solid #539165 !important; /* Verde */
   box-shadow: 0 4px 6px rgba(83, 145, 101, 0.5) !important; /* Sombra verde */
 }
 
+/* Estilos da seção de saldo */
 section.saldo {
   border: 3px solid #212427 !important;
 }
 
+/* Estilos do parágrafo dentro da seção de saldo-final */
 section.saldo-final p {
   font-size: 58px;
   font-weight: 900;
@@ -237,6 +222,7 @@ h2 {
   margin-top: 0;
 }
 
+/* Estilos da caixa de input */
 .input-box {
   border: 2px solid #539165;
   border-radius: 8px;
@@ -250,6 +236,7 @@ h2 {
   margin-left: 20px;
 }
 
+/* Estilos das mensagens */
 .mensagem.negativo {
   color: #FC3503; /* Vermelho */
   font-size: 40px;
@@ -267,7 +254,7 @@ h2 {
 
 .mensagem {
   margin-top: 40px; /* Aumenta o espaçamento superior */
-  margin-bottom: 80px;
+  margin-bottom: 40px; /* Aumenta o espaçamento inferior */
   padding: 20px; /* Adiciona um espaçamento interno */
   background-color: #F8F5E4; /* Branco */
   border: none; /* Remover borda */
@@ -279,6 +266,7 @@ h2 {
   align-items: center;
 }
 
+/* Estilos das seções com base na ordem */
 section:nth-child(1) {
   background-color: #F8F5E4; /* Branco */
 }
@@ -291,28 +279,30 @@ section:nth-child(3) {
   background-color: #F8F5E4; /* Branco */
 }
 
+/* Estilos do rodapé */
 footer {
   width: 100%;
-  padding: 0px;
+  padding: 20px 0px;
   background-color: #212427; /* Preto */
   color: #F8F5E4; /* Branco */
   text-align: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
 }
 
+/* Estilos do título principal */
 .titulo-principal {
   text-align: center;
-  font-size: 36px;
-  color: #212427;
-  margin-bottom: 40px; /* Aumenta o espaçamento inferior */
+  color: #212427; /* Cor do título */
+  font-size: 48px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
+/* Estilos do subtítulo */
 .subtitulo {
+  text-align: center;
+  color: #212427; /* Cor do subtítulo */
   font-size: 24px;
-  color: #539165;
-  margin-bottom: 20px; /* Aumenta o espaçamento inferior */
+  margin-bottom: 40px;
 }
 
 .subtitulo-pequeno {
@@ -326,48 +316,72 @@ footer {
   margin-bottom: 20px;
 }
 
+/* Responsividade */
+
 @media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
   main {
     padding: 20px;
     max-width: 100%;
   }
 
-  .login-container {
-    padding: 20px;
+  .header-links {
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
   }
-  
-  .login-form {
-    max-width: 100%;
+
+  .header-link {
+    margin-right: 0;
+    margin-bottom: 10px; /* Ajusta o espaçamento vertical */
+    padding: 10px 20px; /* Ajusta o espaçamento horizontal */
+    font-size: 20px;
   }
-  
-  .login-input {
-    width: 100%;
+
+  .header-links img {
+    max-width: 150px;
+    margin-bottom: 20px; /* Aumenta o espaçamento inferior */
   }
-  
-  .login-button {
-    width: 100%;
-    max-width: 100%;
+
+  .login-form,
+  .mensagem {
+    font-size: 24px;
   }
-  
+
+  .login-input,
   .input-box {
-    width: 100%;
+    max-width: 100%;
   }
 
   section {
-    padding: 10px;
+    margin-bottom: 20px;
   }
-  
-  .mensagem {
-    font-size: 30px;
+
+  .titulo-principal {
+    font-size: 36px;
   }
-  
-  section.despesas,
-  section.receita {
+
+  .subtitulo {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .subtitulo-pequeno {
+    font-size: 16px;
     margin-bottom: 10px;
   }
-  
-  .toggle-mode-button {
-    width: 100px;
-    font-size: 12px;
+
+  .mensagem {
+    font-size: 32px;
+  }
+
+  .input-box {
+    margin-left: 0;
+  }
+
+  .saldo-final p {
+    font-size: 36px;
   }
 }

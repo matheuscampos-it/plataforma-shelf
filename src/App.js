@@ -10,22 +10,24 @@ import logo from './imagens/shelf-logo.png';
 function App() {
   return (
     <Router>
-      <header>
-        <div className="header-links">
-          <Link to="/historico" className="header-link" id="link-text">
-            HISTÓRICO
-          </Link>
-          <Link to="/" className="header-link logo">
-            <img src={logo} alt="Logo" />
-          </Link>
-          <Link to="/estude" className="header-link" id="link-text">
-            ESTUDE
-          </Link>
-          <Link to="/login" className="header-link" id="link-text">
-            LOGIN
-          </Link>
-        </div>
-      </header>
+     <header>
+  <div class="header-links">
+    <Link to="/" className="header-link logo">
+      <img src={logo} alt="Logo" />
+    </Link>
+    <div class="header-links-mobile">
+      <Link to="/historico" className="header-link" id="link-text">
+        HISTÓRICO
+      </Link>
+      <Link to="/estude" className="header-link" id="link-text">
+        ESTUDE
+      </Link>
+      <Link to="/login" className="header-link" id="link-text">
+        LOGIN
+      </Link>
+    </div>
+  </div>
+</header>
 
       <main>
         <Routes>
@@ -43,4 +45,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 

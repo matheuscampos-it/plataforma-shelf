@@ -52,7 +52,7 @@ function Home() {
   return (
     <main>
       <div className='shelf'>
-        <section id='shelf'>
+        <section id='shelf section-content'>
           <div className='coluna-esq'>
             <h2>Saldo Atual</h2>
             <input
@@ -65,7 +65,7 @@ function Home() {
           <div className='coluna-dir'></div>
         </section>
 
-        <section className='despesas' id='shelf'>
+        <section className='despesas section-content' id='shelf'>
           <div className='coluna-esq'>
             <h2 onClick={() => alternarDropdown('despesas')}>Despesas do Mês</h2>
             {despesasAberto ? (
@@ -114,7 +114,7 @@ function Home() {
           <div className='coluna-dir'></div>
         </section>
 
-        <section className='receita' id='shelf'>
+        <section className='receita section-content' id='shelf'>
           <div className='coluna-esq'>
             <h2 onClick={() => alternarDropdown('receitas')}>Receita Esperada</h2>
             {receitasAberto ? (
