@@ -21,7 +21,7 @@ Tenha um gerenciador de pacotes npm ou Yarn instalado. O npm é instalado automa
 Passo 1:
 
 Faça o download do projeto no GitHub para o seu diretório de escolha.
-Extraia o arquivo ZIP, se necessário, e abra o terminal na pasta raiz do projeto.
+Extraia o arquivo ZIP e abra o terminal na pasta raiz do projeto.
 
 Passo 2: Configuração do Backend (Node.js):
 
