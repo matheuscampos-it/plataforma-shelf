@@ -1,7 +1,7 @@
 # plataforma-shelf
 Plataforma para auxílio do controle de gastos que irá estimar os gastos mensais de um indivíduo com o objetivo de organizar a situação financeira.
 
-<span style="color: darkolivegreen;">Tecnologias utilizadas</span>
+<h2><span style="color: darkolivegreen;">Tecnologias utilizadas</span></h2>
 
 Nesse projeto utilizamos as tecnologias HTML, CSS e Javascript (Framework React) para o Front-end. E para o Back-end utilizamos Node.js.
 
