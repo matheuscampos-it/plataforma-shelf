@@ -19,11 +19,11 @@ function Home() {
     return (
       <main>
         <div className="generic-home">
+          <img src={logo} alt="Logo" />
           <h1>Bem-vindo ao Shelf</h1>
           <p>O Shelf é um projeto de controle de finanças pessoais.</p>
           <p>Faça o login para acessar sua conta.</p>
           <Link to="/login">Login</Link>
-          <img src={logo} alt="Logo" />
         </div>
       </main>
     );
