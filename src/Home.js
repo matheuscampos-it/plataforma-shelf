@@ -1,18 +1,33 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import logo from './imagens/shelf-logo.png';
 
 function Home() {
   const [saldoAtual, setSaldoAtual] = useState(0);
   const [despesasAberto, setDespesasAberto] = useState(false);
   const [receitasAberto, setReceitasAberto] = useState(false);
-
   const [aluguel, setAluguel] = useState(0);
   const [alimentacao, setAlimentacao] = useState(0);
   const [transporte, setTransporte] = useState(0);
   const [despesasOutros, setDespesasOutros] = useState(0);
-
   const [salario, setSalario] = useState(0);
   const [investimentos, setInvestimentos] = useState(0);
   const [receitasOutros, setReceitasOutros] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado de login do usuário
+
+  if (!isLoggedIn) {
+    return (
+      <main>
+        <div className="generic-home">
+          <h1>Bem-vindo ao Shelf</h1>
+          <p>O Shelf é um projeto de controle de finanças pessoais.</p>
+          <p>Faça o login para acessar sua conta.</p>
+          <Link to="/login">Login</Link>
+          <img src={logo} alt="Logo" />
+        </div>
+      </main>
+    );
+  }
 
   const despesasTotal = aluguel + alimentacao + transporte + despesasOutros;
   const receitaTotal = salario + investimentos + receitasOutros;
