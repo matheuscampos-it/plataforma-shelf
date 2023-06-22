@@ -82,6 +82,26 @@ header {
   max-width: 200px;
 }
 
+/* Estilo botão registrar */
+.registrar-btn {
+  background-color: #539165;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.registrar-btn:hover {
+  background-color: #3b6d4f;
+}
+
+
+
 /* Estilos do container de login */
 .login-container {
   display: flex;
