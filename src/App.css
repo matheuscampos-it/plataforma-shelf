@@ -1,0 +1,387 @@
+/* Import de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+/* Estilos globais */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #F8F5E4; /* Branco */
+  overflow-x: hidden; /* Oculta a barra de rolagem horizontal */
+}
+
+/* Estilos do conteúdo principal */
+main {
+  margin: 40px auto; /* Aumenta o espaçamento superior e inferior */
+  max-width: 80%; /* Alterado para ocupar no máximo 80% da largura */
+  background-color: #F8F5E4; /* Branco */
+  box-sizing: border-box;
+}
+
+/* Estilos do header */
+/* ----------------- */
+
+/* Estilos dos links do header */
+.header-link {
+  font-size: 26px;
+  color: #212427; /* Cor do link */
+  text-decoration: none; /* Remover sublinhado */
+  margin-right: 20px; /* Espaçamento à direita */
+  padding-left: 40px;
+  padding-right: 40px;
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.header-link::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+#link-text:hover::before {
+  transform: scaleX(1);
+}
+
+#link-text:hover {
+  color: #539165; /* Cor do link ao passar o mouse */
+  transform: scaleX(1);
+}
+
+#link-text::before {
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+  background-color: #212427;
+}
+
+/* Estilos do cabeçalho */
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #F8F5E4; /* Laranja */
+  border-bottom: 1px solid #212427;
+}
+
+.header-links {
+  color: #212427; /* Cor do link */
+  text-decoration: none; /* Remover sublinhado */
+  font-weight: bold; /* Negrito */
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.header-links img {
+  max-width: 200px;
+}
+
+/* Estilos do container de login */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+
+/* Estilos do formulário de login */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Ocupa toda a largura disponível */
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px; /* Adiciona um espaçamento interno */
+}
+
+/* Estilos do título do formulário de login */
+.login-title {
+  font-size: 36px;
+  color: #212427; /* Cor do título */
+  margin-bottom: 20px;
+  font-family: 'Fjalla One', sans-serif;
+  text-align: center; /* Centraliza o texto */
+}
+
+/* Estilos do input do formulário de login */
+.login-input {
+  width: 100%; /* Ocupa toda a largura disponível */
+  max-width: 300px;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 2px solid #539165; /* Cor da borda */
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Estilos do botão de login */
+.login-button {
+  width: 100%; /* Ocupa toda a largura disponível */
+  max-width: 300px;
+  height: 40px;
+  background-color: #539165; /* Cor do botão */
+  color: #F8F5E4; /* Cor do texto do botão */
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #407852; /* Cor do botão ao passar o mouse */
+}
+
+.login-button:focus {
+  outline: none;
+}
+
+/* Estilos da mensagem do login */
+.login-message {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #F8F5E4; /* Branco */
+  border: none; /* Remover borda */
+  box-shadow: none; /* Remover box shadow */
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #212427; /* Cor do texto da mensagem */
+}
+
+.login-message.negativo {
+  color: #FC3503; /* Vermelho */
+}
+
+.login-message.atencao {
+  color: #F7C04A; /* Laranja */
+}
+
+.login-message.positivo {
+  color: #539165; /* Verde */
+}
+
+/* Estilos das seções */
+section {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  margin-bottom: 40px; /* Aumenta o espaçamento inferior */
+  padding: 20px; /* Adiciona um espaçamento interno */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos do conteúdo das seções */
+.section-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Estilos da seção de despesas */
+section.despesas {
+  border: 1px solid #F7C04A !important; /* Laranja */
+  box-shadow: 0 4px 6px rgba(247, 192, 74, 0.5) !important; /* Sombra laranja */
+}
+
+/* Estilos da seção de receita */
+section.receita {
+  border: 1px solid #539165 !important; /* Verde */
+  box-shadow: 0 4px 6px rgba(83, 145, 101, 0.5) !important; /* Sombra verde */
+}
+
+/* Estilos da seção de saldo */
+section.saldo {
+  border: 3px solid #212427 !important;
+}
+
+/* Estilos do parágrafo dentro da seção de saldo-final */
+section.saldo-final p {
+  font-size: 58px;
+  font-weight: 900;
+  text-align: center;
+  padding: 10px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+/* Estilos da caixa de input */
+.input-box {
+  border: 2px solid #539165;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  color: #212427;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+/* Estilos das mensagens */
+.mensagem.negativo {
+  color: #FC3503; /* Vermelho */
+  font-size: 40px;
+}
+
+.mensagem.atencao {
+  color: #F7C04A; /* Laranja */
+  font-size: 40px;
+}
+
+.mensagem.positivo {
+  color: #539165; /* Verde */
+  font-size: 40px;
+}
+
+.mensagem {
+  margin-top: 40px; /* Aumenta o espaçamento superior */
+  margin-bottom: 40px; /* Aumenta o espaçamento inferior */
+  padding: 20px; /* Adiciona um espaçamento interno */
+  background-color: #F8F5E4; /* Branco */
+  border: none; /* Remover borda */
+  box-shadow: none; /* Remover box shadow */
+  font-size: 50px;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos das seções com base na ordem */
+section:nth-child(1) {
+  background-color: #F8F5E4; /* Branco */
+}
+
+section:nth-child(2) {
+  background-color: #F8F5E4; /* Branco */
+}
+
+section:nth-child(3) {
+  background-color: #F8F5E4; /* Branco */
+}
+
+/* Estilos do rodapé */
+footer {
+  width: 100%;
+  padding: 20px 0px;
+  background-color: #212427; /* Preto */
+  color: #F8F5E4; /* Branco */
+  text-align: center;
+}
+
+/* Estilos do título principal */
+.titulo-principal {
+  text-align: center;
+  color: #212427; /* Cor do título */
+  font-size: 48px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* Estilos do subtítulo */
+.subtitulo {
+  text-align: center;
+  color: #212427; /* Cor do subtítulo */
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.subtitulo-pequeno {
+  font-size: 18px;
+  color: #539165;
+  margin-bottom: 20px; /* Aumenta o espaçamento inferior */
+}
+
+#content {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  main {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .header-links {
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+  }
+
+  .header-link {
+    margin-right: 0;
+    margin-bottom: 10px; /* Ajusta o espaçamento vertical */
+    padding: 10px 20px; /* Ajusta o espaçamento horizontal */
+    font-size: 20px;
+  }
+
+  .header-links img {
+    max-width: 150px;
+    margin-bottom: 20px; /* Aumenta o espaçamento inferior */
+  }
+
+  .login-form,
+  .mensagem {
+    font-size: 24px;
+  }
+
+  .login-input,
+  .input-box {
+    max-width: 100%;
+  }
+
+  section {
+    margin-bottom: 20px;
+  }
+
+  .titulo-principal {
+    font-size: 36px;
+  }
+
+  .subtitulo {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .subtitulo-pequeno {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .mensagem {
+    font-size: 32px;
+  }
+
+  .input-box {
+    margin-left: 0;
+  }
+
+  .saldo-final p {
+    font-size: 36px;
+  }
+}

@@ -1,0 +1,6 @@
+# Ignorar a pasta node_modules
+node_modules/
+
+# Ignorar todos os arquivos dentro da pasta node_modules, exceto o arquivo .keep
+node_modules/*
+!node_modules/.keep
