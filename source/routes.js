@@ -72,40 +72,32 @@ router.post('/receitas', (req, res)=> {
   });
 })
 
-router.get('/despesas/:userId', (req, res) => {
+router.get('/saldo/despesas/:userId', (req, res) => {
   const { userId } = req.params;
 
-  const query = 'SELECT aluguel, alimentacao, transporte, outros as despesasOutros FROM despesas WHERE usuario_Id = ? ORDER BY id DESC LIMIT 1';
+  const query = 'SELECT SUM(aluguel) + SUM(alimentacao) + SUM(transporte) + SUM(outros) AS despesasTotal FROM despesas WHERE usuario_id = ?';
   connection.query(query, [userId], (err, results) => {
     if (err) {
       console.error('Erro ao buscar despesas do usuário:', err);
       res.status(500).json({ error: 'Erro ao buscar despesas do usuário.' });
     } else {
-      if (results.length > 0) {
-        const despesas = results[0];
-        res.json({ success: true, despesa: despesas });
-      } else {
-        res.json({ success: true, despesa: null });
-      }
+      const despesasTotal = results[0].despesasTotal || 0;
+      res.json({ success: true, despesa: despesasTotal });
     }
   });
 });
 
-router.get('/receitas/:userId', (req, res) => {
+router.get('/saldo/receitas/:userId', (req, res) => {
   const { userId } = req.params;
 
-  const query = 'SELECT salario, investimento, outros as receitasOutros FROM receitas WHERE usuario_Id = ? ORDER BY id DESC LIMIT 1';
+  const query = 'SELECT SUM(salario) + SUM(investimento) + SUM(outros) AS receitasTotal FROM receitas WHERE usuario_id = ?';
   connection.query(query, [userId], (err, results) => {
     if (err) {
-      console.error('Erro ao buscar despesas do usuário:', err);
-      res.status(500).json({ error: 'Erro ao buscar despesas do usuário.' });
+      console.error('Erro ao buscar receitas do usuário:', err);
+      res.status(500).json({ error: 'Erro ao buscar receitas do usuário.' });
     } else {
-      if (results.length > 0) {
-        const receitas = results[0];
-        res.json({ success: true, receita: receitas});
-      } else {
-        res.json({ success: true, receita: null });
-      }
+      const receitasTotal = results[0].receitasTotal || 0;
+      res.json({ success: true, receita: receitasTotal });
     }
   });
 });

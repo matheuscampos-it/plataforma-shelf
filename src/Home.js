@@ -10,7 +10,6 @@ axios.defaults.baseURL = 'http://localhost:3001';
 function Home() {
   const navigate = useNavigate();
   const [userId, setUserId] = useState(null);
-  const [saldoAtual, setSaldoAtual] = useState(0);
   const [despesasAberto, setDespesasAberto] = useState(false);
   const [receitasAberto, setReceitasAberto] = useState(false);
   const [aluguel, setAluguel] = useState(0);
@@ -20,66 +19,37 @@ function Home() {
   const [salario, setSalario] = useState(0);
   const [investimentos, setInvestimentos] = useState(0);
   const [receitasOutros, setReceitasOutros] = useState(0);
+  const [saldoAtualTParcelas, setSaldoAtualTParcelas] = useState(0);
 
-  useEffect(() => {
+useEffect(() => {
     const storedUserId = localStorage.getItem('userId');
     if (!storedUserId) {
       navigate('/Login');
     } else {
       setUserId(storedUserId);
+      saldoAtual(userId);
     }
-  }, [navigate]);
+  }, [navigate, userId]);
 
-
-//   const recuperaDespesas = async () => {
-//     try {
-//       const response = await axios.get(`/despesas/${userId}`);
-//       const { data } = response;
-//       if (data.success && data.despesa) {
-//         const { aluguel, alimentacao, transporte, despesasOutros } = data.despesa;
-//         setAluguel(aluguel || 0);
-//         setAlimentacao(alimentacao || 0);
-//         setTransporte(transporte || 0);
-//         setDespesasOutros(despesasOutros || 0);
-//       } else {
-//         setAluguel(0);
-//         setAlimentacao(0);
-//         setTransporte(0);
-//         setDespesasOutros(0);
-//       }
-//     } catch (error) {
-//       console.error('Erro ao buscar dados das despesas: ', error);
-//     }
-//   };
-  
-//   const recuperaReceitas = async () => {
-//     try {
-//       const response = await axios.get(`/receitas/${userId}`);
-//       const { data } = response;
-//       if (data.success && data.receita) {
-//         const { investimentos, salario, receitasOutros } = data.receita;
-//         setInvestimentos(investimentos || 0);
-//         setSalario(salario || 0);
-//         setReceitasOutros(receitasOutros || 0);
-//       } else {
-//         setInvestimentos(0);
-//         setSalario(0);
-//         setReceitasOutros(0);
-//       }
-//     } catch (error) {
-//       console.error('Erro ao buscar dados das receitas: ', error);
-//     }
-//   };
-// useEffect(()=> {
-//   recuperaDespesas();
-//   recuperaReceitas();
-// }, [recuperaDespesas, recuperaReceitas])
-  
       
   const despesasTotal = aluguel + alimentacao + transporte + despesasOutros;
   const receitaTotal = salario + investimentos + receitasOutros;
 
-  const saldoFinal = saldoAtual - despesasTotal + receitaTotal;
+  
+
+  const saldoAtual = async (userId) =>{
+    const responseReceitas = await axios.get(`/saldo/receitas/${userId}`)
+    const responseDespesas = await axios.get(`/saldo/despesas/${userId}`)
+
+    const receitasTotal = responseReceitas.data.receita || 0;
+    const despesasTotal = responseDespesas.data.despesa || 0;
+    const saldoAtualTParcelas = receitasTotal - despesasTotal;
+    setSaldoAtualTParcelas(saldoAtualTParcelas);
+  };
+ 
+
+  const saldoFinal = saldoAtualTParcelas - despesasTotal + receitaTotal;
+
 
   const alternarDropdown = (dropdown) => {
     if (dropdown === 'despesas') {
@@ -128,6 +98,7 @@ function Home() {
     } catch (error) {
       console.error('Erro ao cadastrar despesa: ', error);
     }
+    window.location.reload();
   }; 
 
   const handleRegistrarMovimentacaoReceitas = async () => {
@@ -147,6 +118,7 @@ function Home() {
     } catch (error) {
       console.error('Erro ao cadastrar receita: ', error);
     }
+    window.location.reload();
   };
 
   return (
@@ -155,7 +127,7 @@ function Home() {
         <section className="section-content">
           <div className="coluna-esq">
             <h2>Saldo Atual</h2>
-            <p>R$ {saldoAtual.toFixed(2)}</p>
+            <p>R$ {saldoAtualTParcelas.toFixed(2)}</p>
           </div>
           <div className="coluna-dir"></div>
         </section>

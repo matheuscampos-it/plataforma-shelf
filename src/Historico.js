@@ -47,7 +47,7 @@ const Historico = () => {
           <div>
             {receitas.length > 0 && (
               <div>
-                <h2>Últimas Receitas</h2>
+                <h2>Últimas 5 movimentações de receitas</h2>
                 <ul>
                   {receitas.map((receita) => (
                     <li key={receita.id}>
@@ -60,7 +60,7 @@ const Historico = () => {
 
             {despesas.length > 0 && (
               <div>
-                <h2>Últimas Despesas</h2>
+                <h2>Últimas 5 movimentações de despesas</h2>
                 <ul>
                   {despesas.map((despesa) => (
                     <li key={despesa.id}>
