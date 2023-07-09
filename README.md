@@ -18,7 +18,7 @@ Passo 1:
 Faça o download do projeto no GitHub para o seu diretório de escolha. Extraia o arquivo ZIP e abra o terminal na pasta raiz do projeto.
 
 Passo 2: Configuração do Backend (Node.js):
-certifique-se de que o de ter dado o npm install e o MYSQL iniciado e de o comando npm run server
+certifique-se de que o de ter dado o npm install e o MYSQL iniciado e de o comando npm run server sendo iniciado na porta 3001.
 
 Passo 3: Configuração do Frontend (React):
 
