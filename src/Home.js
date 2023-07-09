@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logo from './imagens/shelf-logo.png';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:3001';
 
 function Home() {
+  const navigate = useNavigate();
+  const [userId, setUserId] = useState(null);
   const [saldoAtual, setSaldoAtual] = useState(0);
   const [despesasAberto, setDespesasAberto] = useState(false);
   const [receitasAberto, setReceitasAberto] = useState(false);
@@ -14,6 +21,61 @@ function Home() {
   const [investimentos, setInvestimentos] = useState(0);
   const [receitasOutros, setReceitasOutros] = useState(0);
 
+  useEffect(() => {
+    const storedUserId = localStorage.getItem('userId');
+    if (!storedUserId) {
+      navigate('/Login');
+    } else {
+      setUserId(storedUserId);
+    }
+  }, [navigate]);
+
+
+//   const recuperaDespesas = async () => {
+//     try {
+//       const response = await axios.get(`/despesas/${userId}`);
+//       const { data } = response;
+//       if (data.success && data.despesa) {
+//         const { aluguel, alimentacao, transporte, despesasOutros } = data.despesa;
+//         setAluguel(aluguel || 0);
+//         setAlimentacao(alimentacao || 0);
+//         setTransporte(transporte || 0);
+//         setDespesasOutros(despesasOutros || 0);
+//       } else {
+//         setAluguel(0);
+//         setAlimentacao(0);
+//         setTransporte(0);
+//         setDespesasOutros(0);
+//       }
+//     } catch (error) {
+//       console.error('Erro ao buscar dados das despesas: ', error);
+//     }
+//   };
+  
+//   const recuperaReceitas = async () => {
+//     try {
+//       const response = await axios.get(`/receitas/${userId}`);
+//       const { data } = response;
+//       if (data.success && data.receita) {
+//         const { investimentos, salario, receitasOutros } = data.receita;
+//         setInvestimentos(investimentos || 0);
+//         setSalario(salario || 0);
+//         setReceitasOutros(receitasOutros || 0);
+//       } else {
+//         setInvestimentos(0);
+//         setSalario(0);
+//         setReceitasOutros(0);
+//       }
+//     } catch (error) {
+//       console.error('Erro ao buscar dados das receitas: ', error);
+//     }
+//   };
+// useEffect(()=> {
+//   recuperaDespesas();
+//   recuperaReceitas();
+// }, [recuperaDespesas, recuperaReceitas])
+  
+      
   const despesasTotal = aluguel + alimentacao + transporte + despesasOutros;
   const receitaTotal = salario + investimentos + receitasOutros;
 
@@ -39,7 +101,6 @@ function Home() {
       }
     }
   };
-
   let saldoBorderColor;
   if (saldoFinal < 0) {
     saldoBorderColor = '#FC3503'; // Vermelho
@@ -49,10 +110,43 @@ function Home() {
     saldoBorderColor = '#539165'; // Verde
   }
 
-  const handleRegistrarMovimentacao = () => {
-    // Lógica para registrar a movimentação
-    // Implemente de acordo com sua necessidade
-    console.log('Movimentação registrada!');
+  const handleRegistrarMovimentacaoDespesas = async () => {
+    try {
+      const response = await axios.post('/despesas', {
+        userId: userId,
+        aluguel: aluguel,
+        alimentacao: alimentacao,
+        transporte: transporte,
+        despesasOutros: despesasOutros,
+      });
+
+      if (response.data.success) {
+        console.log('Despesa cadastrada com sucesso!');
+      } else {
+        console.error('Erro ao cadastrar despesa.');
+      }
+    } catch (error) {
+      console.error('Erro ao cadastrar despesa: ', error);
+    }
+  }; 
+
+  const handleRegistrarMovimentacaoReceitas = async () => {
+    try {
+      const response = await axios.post('/receitas', {
+        userId: userId,
+        salario: salario,
+        investimentos: investimentos,
+        receitasOutros: receitasOutros,
+      });
+
+      if (response.data.success) {
+        console.log('Receita cadastrada com sucesso!');
+      } else {
+        console.error('Erro ao cadastrar receita.');
+      }
+    } catch (error) {
+      console.error('Erro ao cadastrar receita: ', error);
+    }
   };
 
   return (
@@ -107,7 +201,7 @@ function Home() {
                     onChange={(event) => setDespesasOutros(Number(event.target.value))}
                   />
                 </div>
-                <button className="registrar-btn" onClick={handleRegistrarMovimentacao}>
+                <button className="registrar-btn" onClick={handleRegistrarMovimentacaoDespesas}>
                   Registrar Movimentação
                 </button>
               </div>
@@ -150,7 +244,7 @@ function Home() {
                     onChange={(event) => setReceitasOutros(Number(event.target.value))}
                   />
                 </div>
-                <button className="registrar-btn" onClick={handleRegistrarMovimentacao}>
+                <button className="registrar-btn" onClick={handleRegistrarMovimentacaoReceitas}>
                   Registrar Movimentação
                 </button>
               </div>

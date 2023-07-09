@@ -1,24 +1,39 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+axios.defaults.baseURL = 'http://localhost:3001';
+
 function Login() {
+  const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const [isRegisterMode, setIsRegisterMode] = useState(false); // Estado para controlar o modo de registro
+  const [isRegisterMode, setIsRegisterMode] = useState(false);
 
-  const handleLogin = (event) => {
-    event.preventDefault(); // Impede o envio do formulário
-
-    // Realizar a validação de login (substitua com sua lógica de autenticação)
-    if (username === 'admin' && password === 'password') {
-      alert('Login bem-sucedido');
-      // Redirecionar para outra página ou executar ações adicionais
-      navigate('/dashboard');
-    } else {
-      alert('Nome de usuário ou senha inválidos');
+  const handleLogin = async (event) => {
+    event.preventDefault();
+  
+    try {
+      const response = await axios.post('/login', { 
+        username: username,
+        password: password
+      });
+  
+      if (response.data.success) {
+        const userId = response.data.userId;
+        localStorage.setItem('userId', userId);
+        
+        navigate('/');
+        window.location.reload();
+      } else {
+        alert('Usuário ou senha inválidos! Por favor, verifique suas credenciais.');
+      }
+    } catch (error) {
+      console.error('Erro ao realizar o login: ', error);
+      alert('Ocorreu um erro ao realizar o login.');
     }
-  };
+  }
 
   const handleToggleMode = () => {
     setUsername('');
@@ -26,16 +41,36 @@ function Login() {
     setIsRegisterMode(!isRegisterMode);
   };
 
+  const handleRegister = async () => {
+    try {
+      const response = await axios.post('/registrar', {
+        fullName: fullName,
+        username: username,
+        password: password,
+      },);
+
+      if (response.data.success) {
+        alert('Usuário registrado com sucesso!');
+        navigate('/Login');
+      } else {
+        alert('Erro ao cadastrar usuário!');
+      }
+    } catch (error) {
+      console.error('Erro ao cadastrar usuário: ', error);
+      alert('Ocorreu um erro ao cadastrar o usuário.');
+    }
+  };
+
   return (
     <div className="login-container">
       <h1 className="login-title">{isRegisterMode ? 'Cadastro' : 'Login'}</h1>
-      <form className="login-form" onSubmit={handleLogin}>
+      <form className="login-form" onSubmit={isRegisterMode ? handleRegister : handleLogin}>
         {isRegisterMode && (
           <input
             type="text"
             placeholder="Nome completo"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
+            value={fullName}
+            onChange={(event) => setFullName(event.target.value)}
             required
             className="login-input"
           />
