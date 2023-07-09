@@ -12,6 +12,7 @@ Aqui estão os passos para configurar e executar o projeto em uma máquina pesso
 Pré-requisitos:
 
 Certifique-se de ter o Node.js instalado em sua máquina. Você pode baixá-lo e instalá-lo a partir do site oficial do Node.js (https://nodejs.org). Tenha um gerenciador de pacotes npm ou Yarn instalado. O npm é instalado automaticamente com o Node.js, mas você também pode optar por instalar o Yarn (https://yarnpkg.com) como uma alternativa.
+Para o servidor de banco de dados foi utilizado o MYSQL e o XAMPP para iniciar a conexão com o MYSQL.
 
 Passo 1:
 
